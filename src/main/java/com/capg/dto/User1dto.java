@@ -1,7 +1,10 @@
 package com.capg.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class User1dto {
 
+	@NotNull(message = "Please provide valid user1Id")
 	private String user1Id;
 	private String password;
 	public String getUser1Id() {

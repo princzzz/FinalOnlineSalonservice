@@ -1,6 +1,8 @@
 package com.capg.controller;
 import java.util.List;
 
+import javax.validation.constraints.Min;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class OrdersAPI {
 
 	
 	@GetMapping(value = "/{orderId}")
-	public ResponseEntity<Orders> getOrderDetails(@PathVariable Long orderId) throws OrderServiceNotFoundException {
+	public ResponseEntity<Orders> getOrderDetails(@PathVariable @Min(value=1,message ="Please give orderId >=1") Long orderId) throws OrderServiceNotFoundException {
 		Orders orders=iOrderService.getOrderDetails(orderId);
 		LOGGER.info(environment.getProperty("getOrderbyId"));
 		return new ResponseEntity<>(orders, HttpStatus.OK);
@@ -55,8 +57,8 @@ public class OrdersAPI {
 	}
 	
 	@PutMapping(value = "/updateOrder/{orderId}")
-	public ResponseEntity<String> updateOrder(@PathVariable Long OrderId, @RequestBody Orders order) throws OrderServiceNotFoundException {
-		iOrderService.updateOrder(OrderId, order) ;
+	public ResponseEntity<String> updateOrder(@PathVariable @Min(value=1,message ="Please give orderId >=1") Long orderId, @RequestBody Orders order) throws OrderServiceNotFoundException {
+		iOrderService.updateOrder(orderId, order) ;
 		String successMessage = environment.getProperty("OrderUpdated");
 		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK); 
@@ -64,8 +66,8 @@ public class OrdersAPI {
 	
 	
 	@DeleteMapping(value = "/deleteOrder/{orderId}")
-	public ResponseEntity<String> deleteOrder(@PathVariable Long OrderId) throws OrderServiceNotFoundException {
-		iOrderService.deleteOrder(OrderId) ;
+	public ResponseEntity<String> deleteOrder(@PathVariable @Min(value=1,message ="Please give orderId >=1") Long orderId) throws OrderServiceNotFoundException {
+		iOrderService.deleteOrder(orderId) ;
 		String successMessage = environment.getProperty("OrderDeletedSuccessfully");
 		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);

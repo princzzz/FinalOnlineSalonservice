@@ -51,8 +51,8 @@ public class IPaymentServiceImp implements IPaymentService {
 			card.setCardNumber(payment.getCardDTO().getCardNumber());
 			card.setExpiryDate(payment.getCardDTO().getExpiryDate());
 			paymentInfo.set*/
-			Payment paymentInformation = iPaymentRepository.save(paymentInfo);
-			return paymentInformation;
+			 iPaymentRepository.save(paymentInfo);
+			return paymentInfo;
 			
 			
 		}

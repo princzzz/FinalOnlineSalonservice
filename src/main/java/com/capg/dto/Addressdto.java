@@ -1,9 +1,12 @@
 package com.capg.dto;
 
+import javax.validation.constraints.NotNull;
+
 import com.capg.entity.Address;
 
 public class Addressdto {
 
+	@NotNull(message = "Please provide valid doorno")
 	private String door_no;
 	private String street;
 	private String area;

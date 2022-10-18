@@ -1,6 +1,7 @@
 package com.capg.entity;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.capg.dto.Customerdto;
+import com.capg.dto.Ordersdto;
 @Entity
 public class Orders {
 	@Id
@@ -21,6 +25,15 @@ public class Orders {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name= "userId")
 	private Customer customer;
+	public static Orders DTOToentity(Ordersdto order3) {
+		
+		Orders order4 = new Orders();
+		order4.setOrderId(order3.getOrderId());
+		order4.setAmount(order3.getAmount());
+		order4.setBillingDate(order3.getBillingDate());
+		order4.setPaymentMethod(order3.getPaymentMethod());
+		return order4;
+	}
 	public Orders() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -76,6 +89,25 @@ public class Orders {
 		return "Orders [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + ", payment="
 				+ payment + ", paymentMethod=" + paymentMethod + ", customer=" + customer + "]";
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(amount, billingDate, customer, orderId, payment, paymentMethod);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Orders other = (Orders) obj;
+		return Double.doubleToLongBits(amount) == Double.doubleToLongBits(other.amount)
+				&& Objects.equals(billingDate, other.billingDate) && Objects.equals(customer, other.customer)
+				&& orderId == other.orderId && Objects.equals(payment, other.payment)
+				&& Objects.equals(paymentMethod, other.paymentMethod);
+	}
+	
 	
 	
 

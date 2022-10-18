@@ -2,6 +2,9 @@ package com.capg.controller;
 
 import java.util.List;
 import java.util.logging.Logger;
+
+import javax.validation.constraints.Min;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.aop.ThrowsAdvice;
@@ -40,7 +43,7 @@ public class CustomerAPI {
 	public static final Log LOGGER=LogFactory.getLog(CustomerAPI.class);
 
 	@GetMapping(value = "/{userId}")
-	public ResponseEntity<Customerdto> getCustomer(@PathVariable Integer userId) throws CustomerServiceNotFoundException {
+	public ResponseEntity<Customerdto> getCustomer(@PathVariable @Min(value=1,message ="Please give userId >=1") Integer userId) throws CustomerServiceNotFoundException {
 		Customerdto customer = icustomerService.getCustomer(userId);
 		LOGGER.info(environment.getProperty("getCustomerbyId"));
 		return new ResponseEntity<>(customer, HttpStatus.OK); 
@@ -62,7 +65,7 @@ public class CustomerAPI {
 	}
 	
 	@PutMapping(value = "/updateCustomer/{userId}")
-	public ResponseEntity<String> updateCustomer(@PathVariable Integer userId, @RequestBody Customerdto customer)
+	public ResponseEntity<String> updateCustomer(@PathVariable @Min(value=1,message ="Please give userId >=1") Integer userId, @RequestBody Customerdto customer)
 			throws CustomerServiceNotFoundException {
 		icustomerService.updateCustomer(userId, customer);
 		String successMessage = environment.getProperty("UpdatedSuccessfully");
@@ -72,7 +75,7 @@ public class CustomerAPI {
 	
 
 	@DeleteMapping(value = "/deleteCustomer/{userId}")
-	public ResponseEntity<String> deleteCustomer(@PathVariable Integer userId) throws CustomerServiceNotFoundException {
+	public ResponseEntity<String> deleteCustomer(@PathVariable @Min(value=1,message ="Please give userId >=1") Integer userId) throws CustomerServiceNotFoundException {
 		icustomerService.deleteCustomer(userId);
 		String successMessage = environment.getProperty("deletedSuccessfully");
 		LOGGER.info(successMessage);

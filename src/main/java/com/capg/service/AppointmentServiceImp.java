@@ -54,8 +54,8 @@ public class AppointmentServiceImp implements IAppointmentService{
 		appointmentEntity.setPayment(appointment.getPayment());
 		appointmentEntity.setSalonService(appointment.getSalonService());
 		appointmentEntity.setCustomer(appointment.getCustomer());
-		Appointment appointmentEntity2 = appointmentRepository.save(appointmentEntity);
-		return appointmentEntity2;
+		 appointmentRepository.save(appointmentEntity);
+		return appointmentEntity;
 	}
 	
 	@Override

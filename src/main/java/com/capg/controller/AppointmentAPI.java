@@ -2,6 +2,8 @@ package com.capg.controller;
 
 import java.util.List;
 
+import javax.validation.constraints.Min;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public static final Log LOGGER=LogFactory.getLog(AppointmentAPI.class);
 
 
 @GetMapping(value = "/{id}")
-public ResponseEntity<Appointmentdto> getAppointment(@PathVariable Long id) throws AppointmentServiceNotFoundException{
+public ResponseEntity<Appointmentdto> getAppointment(@PathVariable @Min(value=1,message ="Please give AppointmentId >=1") Long id) throws AppointmentServiceNotFoundException{
 	Appointmentdto appointment = iappointmentService.getAppointment(id);
 	LOGGER.info(environment.getProperty("getAppintmentId"));
 
@@ -64,7 +66,7 @@ public ResponseEntity<String> addCustomer(@RequestBody Appointmentdto appoitntme
 }
 
 @PutMapping(value = "/updateAppointment/{id}")
-public ResponseEntity<String> updateCustomer(@PathVariable Long id, @RequestBody Appointment appointment)
+public ResponseEntity<String> updateCustomer(@PathVariable @Min(value=1,message ="Please give AppointmentId >=1") Long id , @RequestBody Appointment appointment)
 		throws AppointmentServiceNotFoundException {
 	iappointmentService.updateAppointment(id, appointment);
 	String successMessage = environment.getProperty("AppointmentUpdatedSuccessfully");
@@ -73,7 +75,7 @@ public ResponseEntity<String> updateCustomer(@PathVariable Long id, @RequestBody
 }
 
 @DeleteMapping(value = "/deleteAppointment/{id}")
-public ResponseEntity<String> removeAppointment(@PathVariable Long id)throws AppointmentServiceNotFoundException {
+public ResponseEntity<String> removeAppointment(@PathVariable @Min(value=1,message ="Please give AppointmentId >=1") Long id)throws AppointmentServiceNotFoundException {
 	iappointmentService.removeAppointment(id);
 	String successMessage = environment.getProperty("ApideletedSuccessfully");
 	LOGGER.info(successMessage);

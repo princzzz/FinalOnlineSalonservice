@@ -1,9 +1,12 @@
 package com.capg.dto;
 
+import javax.validation.constraints.NotNull;
+
 import com.capg.entity.User1;
 
 public class Admindto {
 
+	@NotNull(message = "Please provide valid AdminId")
 	private int AdminId;
 	private String password;
 	private User1 user1;

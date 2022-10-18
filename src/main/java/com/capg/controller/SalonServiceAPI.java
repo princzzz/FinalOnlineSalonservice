@@ -2,6 +2,8 @@ package com.capg.controller;
 
 import java.util.List;
 
+import javax.validation.constraints.Min;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ public class SalonServiceAPI {
 
 	
 	@GetMapping(value = "/{serviceId}")
-	public ResponseEntity<SalonService> getService(@PathVariable Long serviceId) throws SalonServiceNotFoundException {
+	public ResponseEntity<SalonService> getService(@PathVariable @Min(value=1,message ="Please give serviceId >=1") Long serviceId) throws SalonServiceNotFoundException {
 		SalonService s = salonService.getService(serviceId);
 		LOGGER.info(environment.getProperty("getServiebyServicId"));
 		return new ResponseEntity<>(s, HttpStatus.OK);
@@ -60,14 +62,14 @@ public class SalonServiceAPI {
 
 	
 	@DeleteMapping(value = "/deleteService/{serviceId}")
-	public ResponseEntity<String> removeService(@PathVariable Long serviceId) throws SalonServiceNotFoundException {
+	public ResponseEntity<String> removeService(@PathVariable @Min(value=1,message ="Please give serviceId >=1") Long serviceId) throws SalonServiceNotFoundException {
 		salonService.removeService(serviceId) ;
 		String successMessage = environment.getProperty("serviceDeletedSuccessfully");
 		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
 	}
 	@PutMapping(value = "/updateService/{serviceId}")
-	public ResponseEntity<String> updateService(@PathVariable Long serviceId, @RequestBody SalonService service)
+	public ResponseEntity<String> updateService(@PathVariable @Min(value=1,message ="Please give serviceId >=1") Long serviceId, @RequestBody SalonService service)
 			throws SalonServiceNotFoundException {
 		salonService.updateService(serviceId, service);
 		String successMessage = environment.getProperty("Updated Successfully");

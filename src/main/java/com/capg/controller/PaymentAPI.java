@@ -1,6 +1,8 @@
 package com.capg.controller;
 import java.util.List;
 
+import javax.validation.constraints.Min;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class PaymentAPI {
 	public static final Log LOGGER=LogFactory.getLog(PaymentAPI.class);
 	
 	@GetMapping(value = "/{paymentId}")
-	public ResponseEntity<Payment> getPaymentDetails(@PathVariable Long paymentId) throws PaymentServiceNotFoundException{
+	public ResponseEntity<Payment> getPaymentDetails(@PathVariable @Min(value=1,message ="Please give paymentId >=1") Long paymentId) throws PaymentServiceNotFoundException{
 		Payment payment = iPaymentService.getPaymentDetails(paymentId); 
 		LOGGER.info(environment.getProperty("getPaymentbyId"));
 		return new ResponseEntity<>(payment, HttpStatus.OK);
@@ -48,7 +50,7 @@ public class PaymentAPI {
 	}
 	
 	@PutMapping(value = "/updatePayment/{paymentId}")
-	public ResponseEntity<String> updatePayment(@PathVariable Long paymentId, @RequestBody Payment payment)
+	public ResponseEntity<String> updatePayment(@PathVariable @Min(value=1,message ="Please give paymentId >=1") Long paymentId, @RequestBody Payment payment)
 			throws PaymentServiceNotFoundException {
 		iPaymentService.updatePayment(paymentId, payment);
 		String successMessage = environment.getProperty("update payment");
@@ -57,7 +59,7 @@ public class PaymentAPI {
 		
 	}
 	@DeleteMapping(value = "/deletePayment/{paymentId}")
-	public ResponseEntity<String> deletePayment(@PathVariable Long paymentId)
+	public ResponseEntity<String> deletePayment(@PathVariable @Min(value=1,message ="Please give paymentId >=1") Long paymentId)
 			throws PaymentServiceNotFoundException {
 		iPaymentService.deletePayment(paymentId);
 		String successMessage = environment.getProperty("PaymentDeletedSuccessfully");

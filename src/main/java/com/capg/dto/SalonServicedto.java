@@ -2,11 +2,14 @@ package com.capg.dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotNull;
+
 import com.capg.entity.SalonService;
 
 
 public class SalonServicedto {
 
+	@NotNull(message = "Please provide valid serviceId")
 	private long serviceId;
 	private String serviceName;
 	private String servicePrice;

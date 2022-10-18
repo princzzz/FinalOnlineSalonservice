@@ -2,13 +2,18 @@ package com.capg.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
+import javax.validation.constraints.NotNull;
+
+import com.capg.entity.Appointment;
 import com.capg.entity.Customer;
 import com.capg.entity.Payment;
 import com.capg.entity.SalonService;
 
 public class Appointmentdto {
 
+	@NotNull(message = "Please provide valid a")
 	private long appointmentId;
 	private String location;
 	private String visitType;
@@ -70,6 +75,37 @@ public class Appointmentdto {
 		return "Appointmentdto [appointmentId=" + appointmentId + ", location=" + location + ", visitType=" + visitType
 				+ ", preferredDate=" + preferredDate + ", preferredTime=" + preferredTime + ", salonService="
 				+ salonService + ", customer=" + customer + ", payment=" + payment + "]";
+	}
+	
+	public static Appointmentdto entityToDTO(Appointment appointment2) {
+		Appointmentdto appointment3 = new Appointmentdto();
+		appointment3.setAppointmentId(appointment2.getAppointmentId());
+		appointment3.setLocation(appointment2.getLocation());
+		appointment3.setVisitType(appointment2.getVisitType());
+		appointment3.setPreferredDate(appointment2.getPreferredDate());
+		appointment3.setPreferredTime(appointment2.getPreferredTime());
+		return appointment3;
+		
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(appointmentId, customer, location, payment, preferredDate, preferredTime, salonService,
+				visitType);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Appointmentdto other = (Appointmentdto) obj;
+		return appointmentId == other.appointmentId && Objects.equals(customer, other.customer)
+				&& Objects.equals(location, other.location) && Objects.equals(payment, other.payment)
+				&& Objects.equals(preferredDate, other.preferredDate)
+				&& Objects.equals(preferredTime, other.preferredTime)
+				&& Objects.equals(salonService, other.salonService) && Objects.equals(visitType, other.visitType);
 	}
 	
 	

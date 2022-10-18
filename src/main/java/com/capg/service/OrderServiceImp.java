@@ -41,8 +41,8 @@ public class OrderServiceImp implements IOrderService{
 		paym.setPaymentId(order.getPayment().getPaymentId());
 		orderEntity.setPayment(paym);*/
 			
-		Orders orderEntity2 = orderRepository.save(orderEntity);
-		return orderEntity2;
+		orderRepository.save(orderEntity);
+		return orderEntity;
 		
 	}
 	@Override

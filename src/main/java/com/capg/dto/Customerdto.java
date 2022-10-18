@@ -1,10 +1,14 @@
 package com.capg.dto;
 
 import java.time.LocalDate;
+
+import javax.validation.constraints.NotNull;
+
 import com.capg.entity.User1;
 
 public class Customerdto {
 
+	@NotNull(message = "Please provide valid userId")
 	private Integer userId;
 	private String name;
 	private String email;

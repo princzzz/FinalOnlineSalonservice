@@ -2,8 +2,11 @@ package com.capg.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
 public class Carddto {
 
+	@NotNull(message = "Please provide valid id")
 	private long id;
 	private String cardName;
 	private String cardNumber;
