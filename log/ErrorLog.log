@@ -233,3 +233,5 @@
 18-Oct-2022 11:57:49 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 14112 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
 18-Oct-2022 11:57:49 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
 18-Oct-2022 11:57:49 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 11:57:57 INFO - Started OnlineSsApplication in 8.602 seconds (JVM running for 4981.641)
+18-Oct-2022 13:20:42 INFO - null
