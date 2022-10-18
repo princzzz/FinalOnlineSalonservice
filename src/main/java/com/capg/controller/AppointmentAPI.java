@@ -2,6 +2,8 @@ package com.capg.controller;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -27,28 +29,37 @@ public class AppointmentAPI {
 private IAppointmentService iappointmentService;
 @Autowired
 private Environment environment;
+
+public static final Log LOGGER=LogFactory.getLog(AppointmentAPI.class);
+
+
 @GetMapping(value = "/{id}")
 public ResponseEntity<Appointmentdto> getAppointment(@PathVariable Long id) throws AppointmentServiceNotFoundException{
 	Appointmentdto appointment = iappointmentService.getAppointment(id);
+	LOGGER.info(environment.getProperty("getAppintmentId"));
+
 	return new ResponseEntity<>(appointment, HttpStatus.OK);
 }
 
 @GetMapping(value = "/getAll")
 public ResponseEntity<List<Appointmentdto>> getAllAppointments() throws AppointmentServiceNotFoundException {
 	List<Appointmentdto> appointmentList = iappointmentService.getAllAppointments();
-	return new ResponseEntity<>(appointmentList, HttpStatus.OK);
+	LOGGER.info(environment.getProperty("getAllAppointment"));
+   return new ResponseEntity<>(appointmentList, HttpStatus.OK);
 }
 
 @GetMapping(value = "/getOpenAppointments")
 public ResponseEntity<List<Appointmentdto>> getOpenAppointments()throws AppointmentServiceNotFoundException {
 	List<Appointmentdto> appointmentList = iappointmentService.getOpenAppointments();
+	LOGGER.info(environment.getProperty("getOpenAppointment"));
 	return new ResponseEntity<>(appointmentList, HttpStatus.OK);
 }
 
 @PostMapping(value = "/addAppointment")
 public ResponseEntity<String> addCustomer(@RequestBody Appointmentdto appoitntmet) throws CustomerServiceNotFoundException {
 	Appointment app = iappointmentService.addAppointment(appoitntmet);
-	String successMessage = environment.getProperty("API.INSERT_SUCCESS") + app;
+	String successMessage = environment.getProperty("appointment added -") + app;
+	LOGGER.info(successMessage);
 	return new ResponseEntity<>(successMessage, HttpStatus.CREATED);
 }
 
@@ -56,14 +67,16 @@ public ResponseEntity<String> addCustomer(@RequestBody Appointmentdto appoitntme
 public ResponseEntity<String> updateCustomer(@PathVariable Long id, @RequestBody Appointment appointment)
 		throws AppointmentServiceNotFoundException {
 	iappointmentService.updateAppointment(id, appointment);
-	String successMessage = environment.getProperty("API.UPDATE_SUCCESS");
+	String successMessage = environment.getProperty("AppointmentUpdatedSuccessfully");
+	LOGGER.info(successMessage);
 	return new ResponseEntity<>(successMessage, HttpStatus.OK);
 }
 
 @DeleteMapping(value = "/deleteAppointment/{id}")
 public ResponseEntity<String> removeAppointment(@PathVariable Long id)throws AppointmentServiceNotFoundException {
 	iappointmentService.removeAppointment(id);
-	String successMessage = environment.getProperty("API.DELETE_SUCCESS");
+	String successMessage = environment.getProperty("ApideletedSuccessfully");
+	LOGGER.info(successMessage);
 	return new ResponseEntity<>(successMessage, HttpStatus.OK);
 } 
 

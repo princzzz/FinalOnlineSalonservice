@@ -39,39 +39,43 @@ public class CustomerAPI {
 	
 	public static final Log LOGGER=LogFactory.getLog(CustomerAPI.class);
 
-	@GetMapping(value = "/customers/{userId}")
+	@GetMapping(value = "/{userId}")
 	public ResponseEntity<Customerdto> getCustomer(@PathVariable Integer userId) throws CustomerServiceNotFoundException {
 		Customerdto customer = icustomerService.getCustomer(userId);
-		LOGGER.info(environment.getProperty("CustomerAPI.INSERT_SUCCESS"));
+		LOGGER.info(environment.getProperty("getCustomerbyId"));
 		return new ResponseEntity<>(customer, HttpStatus.OK); 
 	}
 	
-	@GetMapping(value = "/customers") 
+	@GetMapping(value = "/getAllCustomer") 
 	public ResponseEntity<List<Customerdto>> getAllCustomers() throws CustomerServiceNotFoundException {
 		List<Customerdto> customerList = icustomerService.getAllCustomers();
-		return new ResponseEntity<>(customerList, HttpStatus.OK);
+		LOGGER.info(environment.getProperty("ListOfCustomer"));
+       return new ResponseEntity<>(customerList, HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/customers")
+	@PostMapping(value = "/addCustomer")
 	public ResponseEntity<String> addCustomer(@RequestBody Customerdto customer) throws CustomerServiceNotFoundException {
 		Integer userId = icustomerService.addCustomer(customer);
-		String successMessage = environment.getProperty("API.INSERT_SUCCESS") + userId;
+		String successMessage = environment.getProperty("Customer_added_successfully") ;
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.CREATED);
 	}
 	
-	@PutMapping(value = "/customers/{userId}")
+	@PutMapping(value = "/updateCustomer/{userId}")
 	public ResponseEntity<String> updateCustomer(@PathVariable Integer userId, @RequestBody Customerdto customer)
 			throws CustomerServiceNotFoundException {
 		icustomerService.updateCustomer(userId, customer);
-		String successMessage = environment.getProperty("API.UPDATE_SUCCESS");
+		String successMessage = environment.getProperty("UpdatedSuccessfully");
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
 	}
 	
 
-	@DeleteMapping(value = "/customers/{userId}")
+	@DeleteMapping(value = "/deleteCustomer/{userId}")
 	public ResponseEntity<String> deleteCustomer(@PathVariable Integer userId) throws CustomerServiceNotFoundException {
 		icustomerService.deleteCustomer(userId);
-		String successMessage = environment.getProperty("API.DELETE_SUCCESS");
+		String successMessage = environment.getProperty("deletedSuccessfully");
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
 	} 
 }

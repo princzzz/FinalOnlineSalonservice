@@ -1,6 +1,8 @@
 package com.capg.controller;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -28,28 +30,35 @@ public class OrdersAPI {
 	@Autowired
 	private Environment environment;
 	
+	public static final Log LOGGER=LogFactory.getLog(OrdersAPI.class);
+
+	
 	@GetMapping(value = "/{orderId}")
 	public ResponseEntity<Orders> getOrderDetails(@PathVariable Long orderId) throws OrderServiceNotFoundException {
 		Orders orders=iOrderService.getOrderDetails(orderId);
+		LOGGER.info(environment.getProperty("getOrderbyId"));
 		return new ResponseEntity<>(orders, HttpStatus.OK);
 	}
 	@GetMapping(value = "/getAllOrder")
 	public ResponseEntity<List<Orders>> getAllOrders() throws OrderServiceNotFoundException {
 		List<Orders> orderList = iOrderService.getAllOrders();
+		LOGGER.info(environment.getProperty("getAllOrders"));
 		return new ResponseEntity<>(orderList, HttpStatus.OK);
 	}
 	
 	@PostMapping(value = "/addOrder")
 	public ResponseEntity<String> addOrder(@RequestBody Orders order) throws OrderServiceNotFoundException {
 		Orders orderId = iOrderService.addOrder(order);
-		String successMessage = environment.getProperty("API.INSERT_SUCCESS") + orderId;
+		String successMessage = environment.getProperty("OrderAddedSuccessfully") ;
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.CREATED);
 	}
 	
 	@PutMapping(value = "/updateOrder/{orderId}")
 	public ResponseEntity<String> updateOrder(@PathVariable Long OrderId, @RequestBody Orders order) throws OrderServiceNotFoundException {
 		iOrderService.updateOrder(OrderId, order) ;
-		String successMessage = environment.getProperty("API.DELETE_SUCCESS");
+		String successMessage = environment.getProperty("OrderUpdated");
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK); 
 	}
 	
@@ -57,7 +66,8 @@ public class OrdersAPI {
 	@DeleteMapping(value = "/deleteOrder/{orderId}")
 	public ResponseEntity<String> deleteOrder(@PathVariable Long OrderId) throws OrderServiceNotFoundException {
 		iOrderService.deleteOrder(OrderId) ;
-		String successMessage = environment.getProperty("API.DELETE_SUCCESS");
+		String successMessage = environment.getProperty("OrderDeletedSuccessfully");
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
 	}
 	

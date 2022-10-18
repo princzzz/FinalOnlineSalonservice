@@ -170,3 +170,59 @@
 18-Oct-2022 10:07:34 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
 18-Oct-2022 10:07:34 INFO - No active profile set, falling back to 1 default profile: "default"
 18-Oct-2022 10:07:51 INFO - Started SalonServiceApplicationTests in 18.033 seconds (JVM running for 22.573)
+18-Oct-2022 10:14:31 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 15608 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:14:31 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:14:31 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:14:35 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 14724 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:14:35 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:14:35 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:14:36 INFO - Started OnlineSsApplication in 5.439 seconds (JVM running for 650.364)
+18-Oct-2022 10:15:26 INFO - null
+18-Oct-2022 10:22:49 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 15608 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:22:49 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:22:49 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:22:53 INFO - Started OnlineSsApplication in 3.692 seconds (JVM running for 1146.593)
+18-Oct-2022 10:23:13 INFO - null
+18-Oct-2022 10:24:54 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 15608 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:24:54 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:24:54 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:24:57 INFO - Started OnlineSsApplication in 2.821 seconds (JVM running for 1271.026)
+18-Oct-2022 10:26:18 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 11900 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:26:18 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:26:18 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:26:29 INFO - Started OnlineSsApplication in 11.802 seconds (JVM running for 13.635)
+18-Oct-2022 10:27:19 INFO - null
+18-Oct-2022 10:30:51 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 11900 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:30:51 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:30:51 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:30:54 INFO - Started OnlineSsApplication in 3.651 seconds (JVM running for 278.705)
+18-Oct-2022 10:33:38 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 1244 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:33:38 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:33:38 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:34:58 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 14112 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 10:34:58 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 10:34:58 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 10:35:07 INFO - Started OnlineSsApplication in 9.479 seconds (JVM running for 11.558)
+18-Oct-2022 10:35:57 INFO - null
+18-Oct-2022 10:38:22 INFO - null
+18-Oct-2022 10:40:04 INFO - null
+18-Oct-2022 10:40:30 INFO - null
+18-Oct-2022 10:41:06 INFO - null
+18-Oct-2022 10:41:53 INFO - null
+18-Oct-2022 10:42:04 INFO - null
+18-Oct-2022 10:43:51 INFO - null
+18-Oct-2022 11:05:13 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 14112 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 11:05:13 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 11:05:13 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 11:05:17 INFO - Started OnlineSsApplication in 3.972 seconds (JVM running for 1821.817)
+18-Oct-2022 11:05:46 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 14112 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 11:05:46 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 11:05:46 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 11:05:49 INFO - Started OnlineSsApplication in 3.253 seconds (JVM running for 1853.783)
+18-Oct-2022 11:06:31 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 14112 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 11:06:31 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 11:06:31 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 11:06:35 INFO - Starting OnlineSsApplication using Java 17.0.4.1 on DESKTOP-MVTQ89H with PID 17116 (C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main\target\classes started by princ in C:\Users\princ\Downloads\MahaOnlineSalon-main\MahaOnlineSalon-main)
+18-Oct-2022 11:06:35 DEBUG - Running with Spring Boot v2.7.4, Spring v5.3.23
+18-Oct-2022 11:06:35 INFO - No active profile set, falling back to 1 default profile: "default"
+18-Oct-2022 11:06:36 INFO - Started OnlineSsApplication in 4.474 seconds (JVM running for 1900.309)

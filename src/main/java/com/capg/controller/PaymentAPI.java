@@ -1,6 +1,8 @@
 package com.capg.controller;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -29,38 +31,45 @@ public class PaymentAPI {
 	@Autowired
 	private Environment environment;
 	
-	@GetMapping(value = "/getPayment/{paymentId}")
+	public static final Log LOGGER=LogFactory.getLog(PaymentAPI.class);
+	
+	@GetMapping(value = "/{paymentId}")
 	public ResponseEntity<Payment> getPaymentDetails(@PathVariable Long paymentId) throws PaymentServiceNotFoundException{
 		Payment payment = iPaymentService.getPaymentDetails(paymentId); 
+		LOGGER.info(environment.getProperty("getPaymentbyId"));
 		return new ResponseEntity<>(payment, HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/getAllPayment")
 	public ResponseEntity<List<Payment>> getAllPaymentDetails() throws PaymentServiceNotFoundException {
 		List<Payment> paymentDetailsList = iPaymentService.getAllPaymentDetails();
+		LOGGER.info(environment.getProperty("getAllPayment"));
 		return new ResponseEntity<>(paymentDetailsList, HttpStatus.OK);
 	}
 	
-	@PutMapping(value = "/update/{paymentId}")
+	@PutMapping(value = "/updatePayment/{paymentId}")
 	public ResponseEntity<String> updatePayment(@PathVariable Long paymentId, @RequestBody Payment payment)
 			throws PaymentServiceNotFoundException {
 		iPaymentService.updatePayment(paymentId, payment);
-		String successMessage = environment.getProperty("API.UPDATE_SUCCESS");
+		String successMessage = environment.getProperty("update payment");
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage,HttpStatus.OK);
 		
 	}
-	@DeleteMapping(value = "/delete/{paymentId}")
+	@DeleteMapping(value = "/deletePayment/{paymentId}")
 	public ResponseEntity<String> deletePayment(@PathVariable Long paymentId)
 			throws PaymentServiceNotFoundException {
 		iPaymentService.deletePayment(paymentId);
-		String successMessage = environment.getProperty("API.DELETE_SUCCESS");
+		String successMessage = environment.getProperty("PaymentDeletedSuccessfully");
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage ,HttpStatus.OK);
 	}
 	
-	@PostMapping(value = "/add")
+	@PostMapping(value = "/addPayment")
 	public ResponseEntity<String> addPayment(@RequestBody Payment payment) throws PaymentServiceNotFoundException {
 		Payment paymentId = iPaymentService.addPayment(payment);
-		String successMessage = environment.getProperty("API.INSERT_SUCCESS") + paymentId;
+		String successMessage = environment.getProperty("PaymentAddedSuccessfully") + paymentId;
+		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.CREATED);
 	}
 
