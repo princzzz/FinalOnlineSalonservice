@@ -39,7 +39,7 @@ public class AppointmentApplicationTests {
 	void validAppointmentAddition() throws AppointmentServiceNotFoundException{
 		Appointmentdto appointmentdto = Appointmentdto.entityToDTO(AppointmentApplicationTests.demo());
 		Mockito.when(appointmentRepository.findById(appointmentdto.getAppointmentId())).thenReturn(Optional.empty());
-		Assertions.assertEquals(appointmentService.addAppointment(appointmentdto), appointmentdto);
+		Assertions.assertEquals(appointmentService.addAppointment(appointmentdto), Appointment.DTOtoentity(appointmentdto)  );
 	}
 	
 	

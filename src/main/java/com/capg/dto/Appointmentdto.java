@@ -87,6 +87,9 @@ public class Appointmentdto {
 		return appointment3;
 		
 	}
+	
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(appointmentId, customer, location, payment, preferredDate, preferredTime, salonService,

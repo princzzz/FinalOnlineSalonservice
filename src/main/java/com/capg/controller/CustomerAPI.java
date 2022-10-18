@@ -58,7 +58,7 @@ public class CustomerAPI {
 	
 	@PostMapping(value = "/addCustomer")
 	public ResponseEntity<String> addCustomer(@RequestBody Customerdto customer) throws CustomerServiceNotFoundException {
-		Integer userId = icustomerService.addCustomer(customer);
+		Customer cust = icustomerService.addCustomer(customer);
 		String successMessage = environment.getProperty("Customer_added_successfully") ;
 		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.CREATED);
@@ -80,5 +80,5 @@ public class CustomerAPI {
 		String successMessage = environment.getProperty("deletedSuccessfully");
 		LOGGER.info(successMessage);
 		return new ResponseEntity<>(successMessage, HttpStatus.OK);
-	} 
-}
+	}   
+}  

@@ -82,13 +82,13 @@ public class SalonServiceAPI {
 		LOGGER.info(environment.getProperty("getServiceByName"));
 		return new ResponseEntity<>(s, HttpStatus.OK);
 	} 
-	@GetMapping(value = "/service/{servicePrice}")
+	@GetMapping(value = "/service/ServicePrice/{servicePrice}")
 	public ResponseEntity<List<SalonService>> getServiceByPrice(@PathVariable String servicePrice) throws SalonServiceNotFoundException {
 		List<SalonService> s = salonService.getServiceByPrice(servicePrice);
 		LOGGER.info(environment.getProperty("getServiceByPrice"));
 		return new ResponseEntity<>(s, HttpStatus.OK);
 	} 
-	@GetMapping(value = "/service/{serviceDuration}")
+	@GetMapping(value = "/service/ServiceDuration/{serviceDuration}")
 	public ResponseEntity<List<SalonService>> getServiceByDuration(@PathVariable String serviceDuration) throws SalonServiceNotFoundException {
 		List<SalonService> s = salonService.getServicesByDuration(serviceDuration);
 		LOGGER.info(environment.getProperty("getServiceByDuration"));

@@ -1,9 +1,12 @@
 package com.capg.dto;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
+import com.capg.entity.Appointment;
+import com.capg.entity.Customer;
 import com.capg.entity.User1;
 
 public class Customerdto {
@@ -70,7 +73,48 @@ public class Customerdto {
 		this.user1 = user1;
 	}
 	
+	public static Customerdto entityToDTO(Customer customer2) {
+		Customerdto customer3 = new Customerdto();
+		customer3.setContactNo(customer2.getContactNo());
+		customer3.setDob(customer2.getDob());
+		customer3.setEmail(customer3.getEmail());
+		customer3.setName(customer2.getName());
+		customer3.setUser1(customer2.getUser1());
+		customer3.setUserId(customer2.getUserId());
+		return customer3;
+		
+	}
+	/*
+	 public static Appointmentdto entityToDTO(Appointment appointment2) {
+		Appointmentdto appointment3 = new Appointmentdto();
+		appointment3.setAppointmentId(appointment2.getAppointmentId());
+		appointment3.setLocation(appointment2.getLocation());
+		appointment3.setVisitType(appointment2.getVisitType());
+		appointment3.setPreferredDate(appointment2.getPreferredDate());
+		appointment3.setPreferredTime(appointment2.getPreferredTime());
+		return appointment3;
+		
+	} 
+	 */
+	 
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(contactNo, dob, email, name, user1, userId);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customerdto other = (Customerdto) obj;
+		return Objects.equals(contactNo, other.contactNo) && Objects.equals(dob, other.dob)
+				&& Objects.equals(email, other.email) && Objects.equals(name, other.name)
+				&& Objects.equals(user1, other.user1) && Objects.equals(userId, other.userId);
+	}
 	
 	
 	

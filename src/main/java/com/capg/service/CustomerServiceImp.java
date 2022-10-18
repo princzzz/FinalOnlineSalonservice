@@ -39,7 +39,7 @@ public class CustomerServiceImp implements ICustomerService{
 	}
 	
 	@Override
-	public Integer addCustomer(Customerdto customer) throws CustomerServiceNotFoundException {
+	public Customer addCustomer(Customerdto customer) throws CustomerServiceNotFoundException {
 		Customer customerEntity = new Customer();
 		customerEntity.setUserId(customer.getUserId());
 		customerEntity.setName(customer.getName());
@@ -58,8 +58,8 @@ public class CustomerServiceImp implements ICustomerService{
 		 customer.setAddressdto(address); 
 		 */
 		 
-		Customer customerEntity2 = customerRepository.save(customerEntity);
-		return customerEntity2.getUserId();
+		 customerRepository.save(customerEntity);
+		return customerEntity;
 	}
 	
 	@Override

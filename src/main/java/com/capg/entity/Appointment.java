@@ -2,6 +2,7 @@ package com.capg.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.capg.dto.Appointmentdto;
 
 
 @Entity
@@ -99,6 +102,35 @@ public class Appointment {
 				+ salonService + ", customer=" + customer + ", payment=" + payment + "]";
 	}
 	
-	
+	public static Appointment DTOtoentity(Appointmentdto appointment2) {
+		Appointment appointment3 = new Appointment();
+		appointment3.setAppointmentId(appointment2.getAppointmentId());
+		appointment3.setLocation(appointment2.getLocation());
+		appointment3.setVisitType(appointment2.getVisitType());
+		appointment3.setPreferredDate(appointment2.getPreferredDate());
+		appointment3.setPreferredTime(appointment2.getPreferredTime());
+		return appointment3;
+		
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(appointmentId, customer, location, payment, preferredDate, preferredTime, salonService,
+				visitType);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Appointment other = (Appointment) obj;
+		return appointmentId == other.appointmentId && Objects.equals(customer, other.customer)
+				&& Objects.equals(location, other.location) && Objects.equals(payment, other.payment)
+				&& Objects.equals(preferredDate, other.preferredDate)
+				&& Objects.equals(preferredTime, other.preferredTime)
+				&& Objects.equals(salonService, other.salonService) && Objects.equals(visitType, other.visitType);
+	}
 	
 }
